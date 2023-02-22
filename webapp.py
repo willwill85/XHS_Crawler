@@ -49,7 +49,8 @@ class InsertUser:
 # Just for test
 class Index:
     def GET(self):
-        return "Hello to my XHS APP"
+        info=db.get_data_info()
+        return "<HTML><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no\"/><CENTER><H1>Hello to my XHS APP</H1><H2>ALL NUM: "+str(info[0])+"</H2> <H2>Finished: "+str(info[1])+"</H2></CENTER></HTML>"
 
 # 随机获得一个可投放的ID
 class List:

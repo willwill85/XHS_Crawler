@@ -58,4 +58,16 @@ def get_user_list():
     res = cursor.fetchone()
     conn.close()
     return res
+
+# 获得现在总体的数据
+def get_data_info():
+    conn = sqlite3.connect('db')
+    # 创建一个游标对象
+    cursor = conn.cursor()
+    cursor.execute('select count(*) from USERS')
+    all= cursor.fetchone()[0]
+    cursor.execute('select count(*) from USERS where ND=0')
+    ND= cursor.fetchone()[0]
+    return (all,ND)
+
 # print(get_user())
